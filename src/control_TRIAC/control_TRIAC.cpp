@@ -120,19 +120,6 @@ void ISR_ATTR control_TRIAC() {
                 break;
         }
     }
-
-    // Phase Angle Control Logic
-    if (current_phase == 0 && power_level > 0) {
-        digitalWrite(LP_TRIAC_PIN, HIGH);
-        digitalWrite(LED_BUILTIN, LOW);
-    } 
-
-    if (current_phase == (power_level * interrupt_rescaler)) {
-        digitalWrite(LP_TRIAC_PIN, LOW);
-        digitalWrite(LED_BUILTIN, HIGH);
-    }
-
-    
 }
 
 void ISR_ATTR control_alarm() {
