@@ -1,11 +1,27 @@
 #include <Arduino.h>
-#include "control_TRIAC/control_TRIAC.h"
+#include "config.h" 
+#include "FTH_controller/FTH_controller.h"
+#include "Thermistor/Thermistor.h"
 
-TRIACController *heaterController;
+//TRIACController *heaterController;
+Thermistor *heaterTempSensor;
 
 void setup() {
   Serial.begin(9600);
-  heaterController = new TRIACController(true);
+  //heaterController = new TRIACController(true);
+  heaterTempSensor = new Thermistor(
+    HEATER_T_SENS_PIN,
+    HEATER_T_SENS_VCC,
+    HEATER_T_SENS_ANALOG_REFERENCE,
+    HEATER_T_SENS_ADC_MAX,
+    HEATER_T_SENS_SERIES_RESISTOR,
+    HEATER_T_SENS_NOMINAL_RESISTANCE,
+    HEATER_T_SENS_NOMINAL_TEMPERATURE,
+    HEATER_T_SENS_B_COEFFICIENT,
+    HEATER_T_SENS_SAMPLES,
+    HEATER_T_SENS_SAMPLES_INTERVAL
+  );
+  FTH_controller_setup();
 }
 
 void serialFlush(){

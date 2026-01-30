@@ -29,7 +29,7 @@
 
 #define DEBOUNCE_DELAY_US 5000 //5ms debounce for zero crossing detection
 
-#define MAX_POWER_LEVEL 24
+#define TRIAC_MAX_PL 24
 #define ZERO_POWER 0
 #define LOW_POWER 1
 #define MID_POWER 2

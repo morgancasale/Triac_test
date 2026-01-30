@@ -87,13 +87,13 @@ void ISR_ATTR control_TRIAC() {
         return;
     }
 
-    if (power_level == MAX_POWER_LEVEL) {
+    if (power_level == TRIAC_MAX_PL) {
         digitalWrite(LP_TRIAC_PIN, HIGH);
         digitalWrite(HP_TRIAC_PIN, HIGH);
         digitalWrite(LED_BUILTIN, LOW);
     }
 
-    if(power_level>0 && power_level<MAX_POWER_LEVEL){
+    if(power_level>0 && power_level<TRIAC_MAX_PL){
         uint8_t mode = calc_instant_power_level(current_phase, power_level);
         switch (mode){
             case ZERO_POWER:
