@@ -98,7 +98,7 @@ void ISR_ATTR control_TRIAC() {
         switch (mode){
             case ZERO_POWER:
                 digitalWrite(LP_TRIAC_PIN, LOW);
-                digitalWrite(HP_TRIAC_PIN, HIGH);
+                digitalWrite(HP_TRIAC_PIN, LOW);
                 digitalWrite(LED_BUILTIN, HIGH);
                 break;
             case LOW_POWER:
